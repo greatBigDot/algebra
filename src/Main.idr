@@ -6,4 +6,4 @@ import Algebra
 
 ||| The \"main\" function of 'algebra'.
 main : IO ()
-main = putStrLn $ Algebra.Data.Algebra.algebra
+main = putStrLn $ show Answer

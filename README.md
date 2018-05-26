@@ -1,6 +1,6 @@
 # algebra
 
-A representation of several basic algebraic structures (e.g., groups, rings, vector spaces) as Idris typeclasses (axioms fully enforced).
+A representation of several basic algebraic structures (e.g., groups, rings, vector spaces) as Idris interfaces (axioms fully enforced).
 
 Mathematically, the idea of an algebraic structure is quite simple. Consider
 (a) the set of integers \\(\mathbb{Z}\\), (b) two of the most basic functions
@@ -114,4 +114,4 @@ interesting properties of them that make them worth studying.
 To create an instance of an algebraic structure's interface, one must not only
 provide the sets and operations with the proper signatures, but also provide
 proofs of the axioms of that algebraic structure. To see how this works, you
-might want to take a look at `Algebra.Data.Group`.
+might want to take a look at `Algebra.Group`.

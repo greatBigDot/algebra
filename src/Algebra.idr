@@ -1,4 +1,5 @@
-||| Algebra: The interface to the modules of 'algebra': a representation of several basic algebraic structures (e.g., groups, rings, vector spaces) as Idris typeclasses (axioms fully enforced)..
+||| Algebra: The interface to the modules of 'algebra': a representation of several basic algebraic structures (e.g., groups, rings, vector spaces) as Idris interfaces (axioms fully enforced).
+|||
 ||| Mathematically, the idea of an algebraic structure is quite simple.
 ||| Consider (a) the set of integers \\(\mathbb{Z}\\), (b) two of the most
 ||| basic functions on it, \\(+: \mathbb{Z}^2 \to \mathbb{Z} \\) and \\(\cdot:
@@ -118,11 +119,10 @@
 ||| To create an instance of an algebraic structure's interface, one must not
 ||| only provide the sets and operations with the proper signatures, but also
 ||| provide proofs of the axioms of that algebraic structure. To see how this
-||| works, you might want to take a look at `Algebra.Data.Group`.
+||| works, you might want to take a look at `Algebra.Group`.
 module Algebra
 
--- The primary datatype(s) of 'algebra', imported and re-exported.
-import public Algebra.Data.Algebra
+import Algebra.Magma
 
 %default total
 
