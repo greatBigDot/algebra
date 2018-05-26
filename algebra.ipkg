@@ -19,3 +19,4 @@ opts       = "--total"
 modules    = Algebra
 		   , Algebra.Magma
            , Algebra.Semigroup
+		   , Algebra.Monoid
