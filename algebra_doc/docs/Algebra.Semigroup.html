@@ -10,8 +10,7 @@
 magmas; see <code>Algebra.Magma</code>), semigroups, with their richer structure, yield
 more interesting behavior.</p>
 <p>TODO: expand</p>
-<dl class="decls"><dt id="Algebra.Semigroup.Semigroup"><span class="word">interface&nbsp;</span><span class="name type" title="Algebra.Semigroup.Semigroup">Semigroup</span><span class="signature">&nbsp;</span></dt><dd><p>Semigroup: The interface representing semigroups.</p>
-<p>Minimally complete definition: <code>assoc</code></p>
+<dl class="decls"><dt id="Algebra.Semigroup.Semigroup"><span class="word">record&nbsp;</span><span class="name type" title="Algebra.Semigroup.Semigroup">Semigroup</span><span class="type">&nbsp;</span></dt><dd><p>Semigroup: The record representing semigroups.</p>
 <p>The requirement that a semigroup be a magma is just a declaration of the
 signature of semigroups; namely, one set and one binary operation over it.
 There is one law that must be obeyed: associativity. Note that you cannot
@@ -20,11 +19,42 @@ associative. Thus, the associativity is guaranteed by the typechecker; if a
 function utilizing a type that claims to be a semigroup, you know that it
 indeed must be one. mathematically speaking, iff it typechecks. (Of course,
 as usual, this only holds when all of one's proofs are total.)</p>
-<dl class="decls"><dt id="Algebra.Semigroup.assoc"><span class="name function" title="Algebra.Semigroup.assoc">assoc</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Semigroup.Semigroup" href="Algebra.Semigroup.html#Algebra.Semigroup.Semigroup">Semigroup</a> <span class="implicit boundvar" title="">S</span>
-<span class="implicit boundvar" title="">op</span> =>
-<span class="implicit boundvar" title="">op</span> (<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">s</span>
+<dl class="decls"><dt id="Algebra.Semigroup.MkSemigroup&#39;"><span class="name constructor" title="Algebra.Semigroup.MkSemigroup&#39;">MkSemigroup&#39;</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">magma</span> : <a class="type" title="Algebra.Magma.Magma" href="Algebra.Magma.html#Algebra.Magma.Magma">Magma</a>) ->
+(<span class="boundvar" title="">assoc</span> : <span class="implicit boundvar" title="">s</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+(<span class="implicit boundvar" title="">t</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">u</span>) <a class="type" title="=" href="[builtins].html#=">=</a>
+(<span class="implicit boundvar" title="">s</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">t</span>) <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">u</span>) ->
+<a class="type" title="Algebra.Semigroup.Semigroup" href="Algebra.Semigroup.html#Algebra.Semigroup.Semigroup">Semigroup</a></span></dt><dd></dd></dl><dl class="decls"><dt id="Algebra.Semigroup.Semigroup.magma"><span class="name function" title="Algebra.Semigroup.Semigroup.magma">magma</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">rec</span> : <a class="type" title="Algebra.Semigroup.Semigroup" href="Algebra.Semigroup.html#Algebra.Semigroup.Semigroup">Semigroup</a>) ->
+<a class="type" title="Algebra.Magma.Magma" href="Algebra.Magma.html#Algebra.Magma.Magma">Magma</a></span></dt><dd></dd><dt id="Algebra.Semigroup.Semigroup.assoc"><span class="name function" title="Algebra.Semigroup.Semigroup.assoc">assoc</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">rec</span> : <a class="type" title="Algebra.Semigroup.Semigroup" href="Algebra.Semigroup.html#Algebra.Semigroup.Semigroup">Semigroup</a>) ->
+<span class="implicit boundvar" title="">s</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+(<span class="implicit boundvar" title="">t</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">u</span>) <a class="type" title="=" href="[builtins].html#=">=</a>
+(<span class="implicit boundvar" title="">s</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">t</span>) <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">u</span></span></dt><dd></dd></dl></dd><dt id="Algebra.Semigroup.NatMultSemi"><span class="name function" title="Algebra.Semigroup.NatMultSemi">NatMultSemi</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Semigroup.Semigroup" href="Algebra.Semigroup.html#Algebra.Semigroup.Semigroup">Semigroup</a></span></dt><dd></dd><dt id="Algebra.Semigroup.NatAddSemi"><span class="name function" title="Algebra.Semigroup.NatAddSemi">NatAddSemi</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Semigroup.Semigroup" href="Algebra.Semigroup.html#Algebra.Semigroup.Semigroup">Semigroup</a></span></dt><dd></dd><dt id="Algebra.Semigroup.NatAddMagma"><span class="name function" title="Algebra.Semigroup.NatAddMagma">NatAddMagma</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Magma.Magma" href="Algebra.Magma.html#Algebra.Magma.Magma">Magma</a></span></dt><dd></dd><dt id="Algebra.Semigroup.MkSemigroupRaw"><span class="name function" title="Algebra.Semigroup.MkSemigroupRaw">MkSemigroupRaw</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">T</span> : <span class="type" title="Type">Type</span>) ->
+(<span class="boundvar" title="">op</span> : <span class="boundvar" title="">T</span> ->
+<span class="boundvar" title="">T</span> ->
+<span class="boundvar" title="">T</span>) ->
+{<span class="keyword" title="">auto</span> <a class="" title="asc" href="[builtins].html#asc">asc</a> : <span class="boundvar" title="">op</span> <span class="implicit boundvar" title="">s</span>
+(<span class="boundvar" title="">op</span> <span class="implicit boundvar" title="">t</span>
+<span class="implicit boundvar" title="">u</span>) <a class="type" title="=" href="[builtins].html#=">=</a>
+<span class="boundvar" title="">op</span> (<span class="boundvar" title="">op</span> <span class="implicit boundvar" title="">s</span>
 <span class="implicit boundvar" title="">t</span>)
-<span class="implicit boundvar" title="">u</span> <a class="type" title="=" href="[builtins].html#=">=</a>
-<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">s</span>
-(<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">t</span>
-<span class="implicit boundvar" title="">u</span>)</span></dt><dd></dd></dl></dd></dl></div></div><footer>Produced by IdrisDoc version 1.0</footer></body></html>
+<span class="implicit boundvar" title="">u</span>} ->
+<a class="type" title="Algebra.Semigroup.Semigroup" href="Algebra.Semigroup.html#Algebra.Semigroup.Semigroup">Semigroup</a></span></dt><dd></dd><dt id="Algebra.Semigroup.MkSemigroup&#39;"><span class="name constructor" title="Algebra.Semigroup.MkSemigroup&#39;">MkSemigroup&#39;</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">magma</span> : <a class="type" title="Algebra.Magma.Magma" href="Algebra.Magma.html#Algebra.Magma.Magma">Magma</a>) ->
+(<span class="boundvar" title="">assoc</span> : <span class="implicit boundvar" title="">s</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+(<span class="implicit boundvar" title="">t</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">u</span>) <a class="type" title="=" href="[builtins].html#=">=</a>
+(<span class="implicit boundvar" title="">s</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">t</span>) <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">u</span>) ->
+<a class="type" title="Algebra.Semigroup.Semigroup" href="Algebra.Semigroup.html#Algebra.Semigroup.Semigroup">Semigroup</a></span></dt><dd></dd><dt id="Algebra.Semigroup.MkSemigroup"><span class="name function" title="Algebra.Semigroup.MkSemigroup">MkSemigroup</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">magma</span> : <a class="type" title="Algebra.Magma.Magma" href="Algebra.Magma.html#Algebra.Magma.Magma">Magma</a>) ->
+{<span class="keyword" title="">auto</span> <a class="" title="asc" href="[builtins].html#asc">asc</a> : <span class="implicit boundvar" title="">s</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+(<span class="implicit boundvar" title="">t</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">u</span>) <a class="type" title="=" href="[builtins].html#=">=</a>
+(<span class="implicit boundvar" title="">s</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">t</span>) <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">u</span>} ->
+<a class="type" title="Algebra.Semigroup.Semigroup" href="Algebra.Semigroup.html#Algebra.Semigroup.Semigroup">Semigroup</a></span></dt><dd></dd><dt id="Algebra.Semigroup.IntMultSemi"><span class="name function" title="Algebra.Semigroup.IntMultSemi">IntMultSemi</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Semigroup.Semigroup" href="Algebra.Semigroup.html#Algebra.Semigroup.Semigroup">Semigroup</a></span></dt><dd></dd><dt id="Algebra.Semigroup.IntAddSemi"><span class="name function" title="Algebra.Semigroup.IntAddSemi">IntAddSemi</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Semigroup.Semigroup" href="Algebra.Semigroup.html#Algebra.Semigroup.Semigroup">Semigroup</a></span></dt><dd></dd></dl></div></div><footer>Produced by IdrisDoc version 1.0</footer></body></html>

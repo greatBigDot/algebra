@@ -30,6 +30,7 @@ import Algebra.Semigroup
 
 %default total
 
+{-
 export
 interface Magma N op => Monoid (N : Type) (op : N -> N -> N) (e : N) where
   assoc : {n,p,q : N} -> ((n `op` p) `op` q = n `op` (p `op` q))
@@ -46,3 +47,4 @@ e @{monoid} = _e monoid
 -- idk why this isn't working. try the forums, i guess.
 -- Algebra.Monoid.Monoid n op ide => Algebra.Semigroup.Semigroup n op where
 --   assoc = assoc
+-}

@@ -20,7 +20,7 @@
 ||| structures just gives us a more convenient way to talk about the signature
 ||| of the more interesting ones. (Of course, all of this leads naturally to
 ||| groups, semigroups, monoids, etc. being extensions of the `Magma`
-||| interface.)
+||| record.)
 |||
 ||| That's not to say there's nothing interesting about magmas. There are
 ||| interesting combinatorial questions arising from freely generated magmas.
@@ -41,35 +41,26 @@ module Algebra.Magma
 
 infix 7 |*|
 
-||| The interface representing magmas. Because magmas have no restrictions other
-||| than their signature, the interface has no functions; all the information is
-||| carried by the type.
-export
-interface Magma (M : Type) (op : M -> M -> M) where
+||| The record representing magmas. Note that there are no proofs to be
+||| automatically filled in; magmas don't have any extra properties beyond their
+||| signature.
+public export
+record Magma where
+  constructor MkMagma
+  Set' : Type
+  op'  : Set' -> Set' -> Set'
 
-||| For some reason, Idris doesn't allow me to refer to the names of implicit
-||| arguments, including interface constraints, in the function body. Thus, this
-||| function is necessary to define the real one, `Set`, where the magma in
-||| question is implicit (in the form of a constraint).
-_Set : Magma m op -> Type
-_Set _ = m
+public export
+Set : {magma : Magma} -> Type
+Set {magma} = Set' magma
 
-||| A function for extracting the underlying set of a magma. Because of the
-||| organizational choice used in the module (that signature is carried by type
-||| and axioms by interface methods), this is necessary. From a
-||| catgeory-theoretic standpoint, this is simply the forgetful functor
-||| \\(\textrm{Magma} \to \textrm{Set}\\).
-export
-Set : Magma m op => Type
-Set @{magma} = _Set magma
+public export
+(|*|) : {magma : Magma} -> Set {magma} -> Set {magma} -> Set {magma}
+(|*|) {magma} = op' magma
 
-||| For some reason, Idris is giving me trouble when attempting to use operators
-||| as names of arguments. Plus, I can't refer to the names of implicit
-||| arguments in the function body (again for reasons that are unclear to me).
-||| This gets around both issues, allowing the definition of `(|*|)`.
-_op : Magma m op -> (m -> m -> m)
-_op _ = op
+-- -}
 
-export
-(|*|) : Magma m op => m -> m -> m
-(|*|) @{magma} = _op magma
+
+-- data Magma : (Set : Type) -> (Set -> Set -> Set) -> Type where
+--   Magmoid :
+-- {-

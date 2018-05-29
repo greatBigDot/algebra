@@ -1,23 +1,23 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>IdrisDoc: Algebra.Monoid</title><link type="text/css" rel="stylesheet" href="../styles.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script></head><body class="namespace"><div class="wrapper"><header><strong>IdrisDoc</strong>: Algebra.Monoid<nav><a href="../index.html">Index</a></nav></header><div class="container"><h1>Algebra.Monoid</h1><p>Algebra.Monoid: A representation of monoids.</p>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>IdrisDoc: Algebra.Monoid</title><link type="text/css" rel="stylesheet" href="../styles.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script></head><body class="namespace"><div class="wrapper"><header><strong>IdrisDoc</strong>: Algebra.Monoid<nav><a href="../index.html">Index</a></nav></header><div class="container"><h1>Algebra.Monoid</h1><p>Algebra.Monoid: A representation of monoids.</p>
 <p>A monoid is an associative unital magma (i.e., a unital semigroup).
-Mathematically, one has a pair <span class="math inline">\(\mathscr{N} = (N, *)\)</span> satisfying:</p>
+Mathematically, one has a pair <span class="math inline"><span class="math inline">\(\mathscr{N} = (N, *)\)</span></span> satisfying:</p>
 <ul>
-<li><span class="math inline">\((x<em>y)</em>z = x<em>(y</em>z)\)</span></li>
-<li><span class="math inline">\(\exists e \in N [ \forall x \in N [ x<em>e = e</em>x = x ]]\)</span></li>
+<li><span class="math inline"><span class="math inline">\((x<em>y)</em>z = x<em>(y</em>z)\)</span></span></li>
+<li><span class="math inline"><span class="math inline">\(\exists e \in N [ \forall x \in N [ x<em>e = e</em>x = x ]]\)</span></span></li>
 </ul>
 <p>Monoids strike a nice balance between generality and richness of structure;
 many naturally-occuring magmas are indeed monoids. For example, consider the
-set of functions <span class="math inline">\(X \to X\)</span>. This set always forms a monoid under
-function composition (i.e., <span class="math inline">\(* \coloneqq \circ\)</span>)! Everything has the
-required type (the composition of two functions in <span class="math inline">\(X \to X\)</span> is another
+set of functions <span class="math inline"><span class="math inline">\(X \to X\)</span></span>. This set always forms a monoid under
+function composition (i.e., <span class="math inline"><span class="math inline">\(* \coloneqq \circ\)</span></span>)! Everything has the
+required type (the composition of two functions in <span class="math inline"><span class="math inline">\(X \to X\)</span></span> is another
 such function), the identity, of course, is the identity function
-<span class="math inline">\(\mathrm{id}\)</span>, and function composition is always associative (applying
+<span class="math inline"><span class="math inline">\(\mathrm{id}\)</span></span>, and function composition is always associative (applying
 f, then applying (g then h) is the same as applying (f then g), then
 applying h). Thus, we have a monoid.</p>
 <p>Another simplr monoid is the set of strings over a given alphabet, with
 string concatenation as the function (and the empty string
-<span class="math inline">\(\varepsilon\)</span>) as the identity. Again, this obviously must be monoidal,
+<span class="math inline"><span class="math inline">\(\varepsilon\)</span></span>) as the identity. Again, this obviously must be monoidal,
 since string concatenation is clearly associative.</p>
 <p>TODO: add a little more</p>
 <dl class="decls"><dt id="Algebra.Monoid.e"><span class="name function" title="Algebra.Monoid.e">e</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a> <span class="implicit boundvar" title="">n</span>
