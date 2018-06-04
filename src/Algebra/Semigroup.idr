@@ -1,4 +1,4 @@
-||| Algebra.Semigroup: A representation of semigroups.
+||| Algebra.SemiGroup: A representation of semigroups.
 |||
 ||| A semigroup is an associative magma. In other words, it is a pair
 ||| \\(\mathscr{S}=(S:\mathscr{V},\*:S^2\to S)\\) satisfying the following
@@ -15,10 +15,11 @@
 module Algebra.Semigroup
 
 import Algebra.Magma
+import Data.ZZ
 
 %default total
 
-||| Semigroup: The interface representing semigroups.
+||| SemiGroup: The interface representing semigroups.
 |||
 ||| Minimally complete definition: `assoc`
 |||
@@ -30,6 +31,25 @@ import Algebra.Magma
 ||| function utilizing a type that claims to be a semigroup, you know that it
 ||| indeed must be one. mathematically speaking, iff  it typechecks. (Of course,
 ||| as usual, this only holds when all of one's proofs are total.)
-export
-interface Magma S op => Semigroup (S : Type) (op : S -> S -> S) where
-  assoc : {s,t,u : S} -> ((s `op` t) `op` u = s `op` (t `op` u))
+public export
+interface Magma S op => SemiGroup (S : Type) (op : S -> S -> S) where
+  assoc : {s,t,u : S} -> (s `op` (t `op` u)) = ((s `op` t) `op` u)
+
+[ZZSemiAdd] SemiGroup ZZ (+) where
+  assoc {s} {t} {u} = plusAssociativeZ s t u
+
+[ZZSemiMult] SemiGroup ZZ (*) where
+  assoc {s} {t} {u} = multAssociativeZ s t u
+
+[ListSemi] SemiGroup (List a) (++) where
+  assoc {s=[]} {t} {u}            = Refl
+  assoc {s=(x::xs)} {t=ys} {u=zs} = cong (assoc @{ListSemi})
+
+[FuncSemi] SemiGroup (a -> a) (.) where
+  assoc = Refl
+
+
+
+-- Local Variables:
+-- idris-load-packages: ("contrib")
+-- End:

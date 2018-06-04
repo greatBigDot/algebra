@@ -30,8 +30,9 @@ import Algebra.Semigroup
 
 %default total
 
-export
-interface Magma N op => Monoid (N : Type) (op : N -> N -> N) (e : N) where
+-- TODO: See if I'm doing "determining parameters" right.
+public export
+interface Magma N op => Monoid (N : Type) (op : N -> N -> N) (e : N) | N,op where
   assoc : {n,p,q : N} -> ((n `op` p) `op` q = n `op` (p `op` q))
   idl : {n : N} -> (n `op` e = n)
   idr : {n : N} -> (e `op` n = n)
@@ -43,6 +44,23 @@ export
 e : (Monoid n op e) => n
 e @{monoid} = _e monoid
 
+[FuncMonoid] Algebra.Monoid.Monoid (a -> a) (.) Prelude.Basics.id where
+  assoc = Refl
+  idl   = Refl
+  idr   = Refl
+
+[ListMonoid] Algebra.Monoid.Monoid (List a) (++) [] where
+  assoc {n=[]} {p} {q}            = Refl
+  assoc {n=(x::xs)} {p=ys} {q=zs} = cong (assoc @{ListMonoid})
+  idl {n=[]} = Refl
+  idl {n=(x::xs)} = cong (idl @{ListMonoid} {n=xs})
+  idr = Refl
+
+
 -- idk why this isn't working. try the forums, i guess.
--- Algebra.Monoid.Monoid n op ide => Algebra.Semigroup.Semigroup n op where
+-- [MonoidToSemigroup] Algebra.Monoid.Monoid nx opx idx => SemiGroup nx opx where
 --   assoc = assoc
+
+-- Local Variables:
+-- idris-load-packages: ("contrib")
+-- End:

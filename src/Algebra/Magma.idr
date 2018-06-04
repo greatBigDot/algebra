@@ -33,9 +33,11 @@
 ||| the free magma with 3 generating elements, how many elements are there with
 ||| exactly \\(k\\) applications of the operation \\(\*\\)? Or more generally,
 ||| what if there are \\(n\\) generating elements? If you like combinatorics,
-||| you might enjoy working these and related questions out\-\--and, as usual,
+||| you might enjoy working these and related questions out\-\-\-and, as usual,
 |||there's a connection to the Catalan numbers.
 module Algebra.Magma
+
+import Data.Fin
 
 %default total
 
@@ -44,8 +46,8 @@ infix 7 |*|
 ||| The interface representing magmas. Because magmas have no restrictions other
 ||| than their signature, the interface has no functions; all the information is
 ||| carried by the type.
-export
-interface Magma (M : Type) (op : M -> M -> M) where
+public export
+interface Magma ( M : Type ) (op : M -> M -> M) where
 
 ||| For some reason, Idris doesn't allow me to refer to the names of implicit
 ||| arguments, including interface constraints, in the function body. Thus, this
@@ -70,6 +72,15 @@ Set @{magma} = _Set magma
 _op : Magma m op -> (m -> m -> m)
 _op _ = op
 
+||| The binary function of the magma, sufficiently implicit-ified. Idris should
+||| determine the magma implementation automatically.
 export
 (|*|) : Magma m op => m -> m -> m
 (|*|) @{magma} = _op magma
+
+-- export
+-- [IntAdd] Magma Integer (+) where
+
+||| Everything with the right type is a magma.
+public export
+Magma a op where
