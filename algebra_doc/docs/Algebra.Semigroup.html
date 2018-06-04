@@ -1,16 +1,16 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>IdrisDoc: Algebra.Semigroup</title><link type="text/css" rel="stylesheet" href="../styles.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script></head><body class="namespace"><div class="wrapper"><header><strong>IdrisDoc</strong>: Algebra.Semigroup<nav><a href="../index.html">Index</a></nav></header><div class="container"><h1>Algebra.Semigroup</h1><p>Algebra.Semigroup: A representation of semigroups.</p>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>IdrisDoc: Algebra.Semigroup</title><link type="text/css" rel="stylesheet" href="../styles.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script></head><body class="namespace"><div class="wrapper"><header><strong>IdrisDoc</strong>: Algebra.Semigroup<nav><a href="../index.html">Index</a></nav></header><div class="container"><h1>Algebra.Semigroup</h1><p>Algebra.SemiGroup: A representation of semigroups.</p>
 <p>A semigroup is an associative magma. In other words, it is a pair
-<span class="math inline"><span class="math inline">\(\mathscr{S}=(S:\mathscr{V},*:S^2\to S)\)</span></span> satisfying the following
+<span class="math inline">\(\mathscr{S}=(S:\mathscr{V},*:S^2\to S)\)</span> satisfying the following
 (rather short!) list of axioms:</p>
 <ul>
-<li><span class="math inline"><span class="math inline">\((x*y)*z = x*(y*z)\)</span></span></li>
+<li><span class="math inline">\((x*y)*z = x*(y*z)\)</span></li>
 </ul>
 <p>In addition to interesting combinatorial questions (like those exhibited by
 magmas; see <code>Algebra.Magma</code>), semigroups, with their richer structure, yield
 more interesting behavior.</p>
 <p>TODO: expand</p>
-<dl class="decls"><dt id="Algebra.Semigroup.Semigroup"><span class="word">interface&nbsp;</span><span class="name type" title="Algebra.Semigroup.Semigroup">Semigroup</span><span class="signature">&nbsp;</span></dt><dd><p>Semigroup: The interface representing semigroups.</p>
+<dl class="decls"><dt id="Algebra.Semigroup.SemiGroup"><span class="word">interface&nbsp;</span><span class="name type" title="Algebra.Semigroup.SemiGroup">SemiGroup</span><span class="signature">&nbsp;</span></dt><dd><p>SemiGroup: The interface representing semigroups.</p>
 <p>Minimally complete definition: <code>assoc</code></p>
 <p>The requirement that a semigroup be a magma is just a declaration of the
 signature of semigroups; namely, one set and one binary operation over it.
@@ -20,11 +20,11 @@ associative. Thus, the associativity is guaranteed by the typechecker; if a
 function utilizing a type that claims to be a semigroup, you know that it
 indeed must be one. mathematically speaking, iff it typechecks. (Of course,
 as usual, this only holds when all of one's proofs are total.)</p>
-<dl class="decls"><dt id="Algebra.Semigroup.assoc"><span class="name function" title="Algebra.Semigroup.assoc">assoc</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Semigroup.Semigroup" href="Algebra.Semigroup.html#Algebra.Semigroup.Semigroup">Semigroup</a> <span class="implicit boundvar" title="">S</span>
+<dl class="decls"><dt id="Algebra.Semigroup.assoc"><span class="name function" title="Algebra.Semigroup.assoc">assoc</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Semigroup.SemiGroup" href="Algebra.Semigroup.html#Algebra.Semigroup.SemiGroup">SemiGroup</a> <span class="implicit boundvar" title="">S</span>
 <span class="implicit boundvar" title="">op</span> =>
-<span class="implicit boundvar" title="">op</span> (<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">s</span>
-<span class="implicit boundvar" title="">t</span>)
-<span class="implicit boundvar" title="">u</span> <a class="type" title="=" href="[builtins].html#=">=</a>
 <span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">s</span>
 (<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">t</span>
-<span class="implicit boundvar" title="">u</span>)</span></dt><dd></dd></dl></dd></dl></div></div><footer>Produced by IdrisDoc version 1.0</footer></body></html>
+<span class="implicit boundvar" title="">u</span>) <a class="type" title="=" href="[builtins].html#=">=</a>
+<span class="implicit boundvar" title="">op</span> (<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">s</span>
+<span class="implicit boundvar" title="">t</span>)
+<span class="implicit boundvar" title="">u</span></span></dt><dd></dd></dl></dd></dl></div></div><footer>Produced by IdrisDoc version 1.0</footer></body></html>
