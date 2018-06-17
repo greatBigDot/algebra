@@ -55,7 +55,7 @@
 ||| modulo operation is essentially a generalization of the concept of even and
 ||| odd numbers to divisibilities other than by 2); similarly with the product.
 ||| Thus, for example, \\(\overline{4} + \overline{3} = \overline{2}\\). A
-||| similar line of reasoning indicates that additive inverses exist\-\--in
+||| similar line of reasoning indicates that additive inverses exist\-\-\-in
 ||| fact, so do multiplicative inverses, at least for non-\\(0\\) elements!
 ||| Observe:
 |||
@@ -66,18 +66,18 @@
 |||
 ||| However, if we look at the integers modulo 6 (\\(\mathbb{Z}\_6\\)), we find
 ||| that multiplicative inverses do *not* always exist; only \\(\overline{1}\\)
-||| and \\(\overline\{-1} = \overline{5}\\) are invertible. (Try it!) In fact,
+||| and \\(\overline\{\-1} = \overline{5}\\) are invertible. (Try it!) In fact,
 ||| the integers modulo n, \\(\mathbb{Z}\_n\\), satisfy the weakened (i.e.,
 ||| ignoring \\(0\\)) multiplicative inverse law if and only if \\(n\\) is
 ||| prime.
 |||
-||| These do not exhaust the possibilities\-\--not even close!\-\--but it should
+||| These do not exhaust the possibilities\-\-\-not even close!\-\-\-but it should
 ||| be enough to give a taste of what abstract algebra is all about. You start
 ||| with some set with defined operations (a pairing known as a \"structure\")
 ||| that you are familiar with, you distill that structure down to its most
 ||| basic and fundamental properties, and then you look at what sorts of things
 ||| satisfy those properties and what those properties alone entail. This allows
-||| you to generalize familiar structures to more abstract ideas\-\--the
+||| you to generalize familiar structures to more abstract ideas\-\-\-the
 ||| original motivating structure becomes just a special case of a more general
 ||| property, and seemingly disparate things suddenly become two special cases
 ||| of a more general idea.
@@ -99,7 +99,7 @@
 ||| above that every element has a unique factorization? Among the motivating
 ||| structure of the integers this was true (a fact known as the Fundamental
 ||| Theorem of Arithmetic); in general, though, it is false! The question then
-||| becomes how to further classify the space of implementations\-\--what's the
+||| becomes how to further classify the space of implementations\-\-\-what's the
 ||| simplest way to divide those that do always admit a unique factorization and
 ||| those that don't? These are the kinds of questions that the framework of
 ||| algebraic structures allows you to ask.

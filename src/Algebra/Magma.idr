@@ -33,8 +33,8 @@
 ||| the free magma with 3 generating elements, how many elements are there with
 ||| exactly \\(k\\) applications of the operation \\(\*\\)? Or more generally,
 ||| what if there are \\(n\\) generating elements? If you like combinatorics,
-||| you might enjoy working these and related questions out\-\--and, as usual,
-|||there's a connection to the Catalan numbers.
+||| you might enjoy working these and related questions out\-\-\-and, as usual,
+||| there's a connection to the Catalan numbers.
 module Algebra.Magma
 
 %default total
@@ -57,6 +57,15 @@ Set {magma} = Set' magma
 public export
 (|*|) : {magma : Magma} -> Set {magma} -> Set {magma} -> Set {magma}
 (|*|) {magma} = op' magma
+
+{-
+public export
+AddMagma : (Num ty) => Magma
+AddMagma {ty} = MkMagma ty (+)
+
+public export
+MultMagma : (Num ty) => Magma
+MultMagma {ty} = MkMagma ty (*)
 
 -- -}
 

@@ -17,6 +17,7 @@ import Data.ZZ
 import Algebra.Magma
 
 %default total
+%hide Semigroup
 
 -- infixr 7 |*|
 
@@ -35,53 +36,49 @@ export
 record Semigroup where
   constructor MkSemigroup'
   magma : Magma
-  assoc : {s,t,u : Set {magma}} -> (|*|) {magma} s ((|*|) {magma} t u) = (|*|) {magma} ((|*|) {magma} s t) u
+  assoc : (s,t,u : Set {magma}) -> s |*| (t |*| u) = (s |*| t) |*| u
 
-toInteger : ZZ -> Integer
-toInteger (Pos  n) = toIntegerNat n
-toInteger (NegS n) = -(toIntegerNat (S n))
-
-%hint
-plusAssociative' : {a,b,c : Nat} -> a + (b + c) = (a + b) + c
-plusAssociative' {a=a} {b=b} {c=c} = plusAssociative a b c
-
-%hint
-multAssociative' : {a,b,c : Nat} -> a * (b * c) = (a * b) * c
-multAssociative' {a=a} {b=b} {c=c} = multAssociative a b c
-
-%hint
-plusAssociativeZ' : {a,b,c : ZZ} -> a + (b + c) = (a + b) + c
-plusAssociativeZ' {a=a} {b=b} {c=c} = plusAssociativeZ a b c
-
-%hint
-multAssociativeZ' : {a,b,c : ZZ} -> a * (b * c) = (a * b) * c
-multAssociativeZ' {a=a} {b=b} {c=c} = multAssociativeZ a b c
+-- MkSemigroup : (magma : Magma) -> {auto asc : {s,t,u : Set {magma}} -> s |*| (t |*| u) = (s |*| t) |*| u} -> Semigroup
+-- MkSemigroup magma {asc} = MkSemigroup' magma asc
 
 public export
-MkSemigroup : (magma : Magma) -> {auto asc : {s,t,u : Set {magma}} -> s |*| (t |*| u) = (s |*| t) |*| u} -> Semigroup
-MkSemigroup magma {asc} = MkSemigroup' magma asc
+MkSemigroup : (T : Type) -> (op : T -> T -> T) -> {auto asc : (s,t,u : T) -> op s (op t u) = op (op s t) u} -> Semigroup
+MkSemigroup set op {asc} = MkSemigroup' (MkMagma set op) asc
 
-public export
-MkSemigroupRaw : (T : Type) -> (op : T -> T -> T) -> {auto asc : {s,t,u : T} -> op s (op t u) = op (op s t) u} -> Semigroup
-MkSemigroupRaw set op {asc} = MkSemigroup (MkMagma set op) {asc}
+
+-- toInteger : ZZ -> Integer
+-- toInteger (Pos  n) = toIntegerNat n
+-- toInteger (NegS n) = -(toIntegerNat (S n))
+
+%hint
+plusAssociative' : (a,b,c : Nat) -> a + (b + c) = (a + b) + c
+plusAssociative' = plusAssociative
+
+%hint
+multAssociative' : (s : Nat) -> (t : Nat) -> (u : Nat) -> s * (t * u) = (s * t) * u
+multAssociative' = multAssociative
+
+%hint
+plusAssociativeZ' : (a,b,c : ZZ) -> a + (b + c) = (a + b) + c
+plusAssociativeZ' = plusAssociativeZ
+
+%hint
+multAssociativeZ' : (a,b,c : ZZ) -> a * (b * c) = (a * b) * c
+multAssociativeZ' = multAssociativeZ
 
 export
 NatAddMagma : Magma
 NatAddMagma = MkMagma Nat (+)
 
-export
-NatAddSemi : Semigroup
-NatAddSemi = MkSemigroup NatAddMagma
+-- export
+-- NatAddSemi : Semigroup
+-- NatAddSemi = MkSemigroup NatAddMagma
 
 export NatMultSemi : Semigroup
-NatMultSemi = MkSemigroupRaw Nat (*)
+NatMultSemi = MkSemigroup Nat (*) {asc = multAssociative'}    -- what the hell
+-- export IntAddSemi : Semigroup
+-- IntAddSemi = MkSemigroup ZZ (+)
 
-export IntAddSemi : Semigroup
-IntAddSemi = MkSemigroupRaw ZZ (+)
+-- export IntMultSemi : Semigroup
+-- IntMultSemi = MkSemigroup ZZ (*)
 
-export IntMultSemi : Semigroup
-IntMultSemi = MkSemigroupRaw ZZ (*)
-
--- Local Variables:
--- idris-load-packages: ("contrib" "prelude" "base")
--- End:
