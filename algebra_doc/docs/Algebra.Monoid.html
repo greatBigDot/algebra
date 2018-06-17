@@ -15,30 +15,27 @@ such function), the identity, of course, is the identity function
 <span class="math inline">\(\mathrm{id}\)</span>, and function composition is always associative (applying
 f, then applying (g then h) is the same as applying (f then g), then
 applying h). Thus, we have a monoid.</p>
-<p>Another simplr monoid is the set of strings over a given alphabet, with
-string concatenation as the function (and the empty string
-<span class="math inline">\(\varepsilon\)</span>) as the identity. Again, this obviously must be monoidal,
-since string concatenation is clearly associative.</p>
+<p>Another simple monoid is the set of strings over a given alphabet, with
+string concatenation as the function (and the empty string <span class="math inline">\(\varepsilon\)</span>
+as the identity). Again, this obviously must be monoidal, since string
+concatenation is clearly associative.</p>
 <p>TODO: add a little more</p>
-<dl class="decls"><dt id="Algebra.Monoid.e"><span class="name function" title="Algebra.Monoid.e">e</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a> <span class="implicit boundvar" title="">n</span>
+<dl class="decls"><dt id="Algebra.Monoid.Monoid"><span class="word">interface&nbsp;</span><span class="name type" title="Algebra.Monoid.Monoid">Monoid</span><span class="signature">&nbsp;</span></dt><dd><dl class="decls"><dt id="Algebra.Monoid.assoc"><span class="name function" title="Algebra.Monoid.assoc">assoc</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a> <span class="implicit boundvar" title="">N</span>
 <span class="implicit boundvar" title="">op</span>
 <span class="implicit boundvar" title="">e</span> =>
-<span class="implicit boundvar" title="">n</span></span></dt><dd></dd><dt id="Algebra.Monoid.Monoid"><span class="word">interface&nbsp;</span><span class="name type" title="Algebra.Monoid.Monoid">Monoid</span><span class="signature">&nbsp;</span></dt><dd><dl class="decls"><dt id="Algebra.Monoid.assoc"><span class="name function" title="Algebra.Monoid.assoc">assoc</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a> <span class="implicit boundvar" title="">N</span>
-<span class="implicit boundvar" title="">op</span>
-<span class="implicit boundvar" title="">e</span> =>
-<span class="implicit boundvar" title="">op</span> (<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">n</span>
-<span class="implicit boundvar" title="">p</span>)
-<span class="implicit boundvar" title="">q</span> <a class="type" title="=" href="[builtins].html#=">=</a>
 <span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">n</span>
 (<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">p</span>
-<span class="implicit boundvar" title="">q</span>)</span></dt><dd></dd><dt id="Algebra.Monoid.idl"><span class="name function" title="Algebra.Monoid.idl">idl</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a> <span class="implicit boundvar" title="">N</span>
-<span class="implicit boundvar" title="">op</span>
-<span class="implicit boundvar" title="">e</span> =>
-<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">n</span>
-<span class="implicit boundvar" title="">e</span> <a class="type" title="=" href="[builtins].html#=">=</a>
-<span class="implicit boundvar" title="">n</span></span></dt><dd></dd><dt id="Algebra.Monoid.idr"><span class="name function" title="Algebra.Monoid.idr">idr</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a> <span class="implicit boundvar" title="">N</span>
+<span class="implicit boundvar" title="">q</span>) <a class="type" title="=" href="[builtins].html#=">=</a>
+<span class="implicit boundvar" title="">op</span> (<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">n</span>
+<span class="implicit boundvar" title="">p</span>)
+<span class="implicit boundvar" title="">q</span></span></dt><dd></dd><dt id="Algebra.Monoid.idl"><span class="name function" title="Algebra.Monoid.idl">idl</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a> <span class="implicit boundvar" title="">N</span>
 <span class="implicit boundvar" title="">op</span>
 <span class="implicit boundvar" title="">e</span> =>
 <span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">e</span>
 <span class="implicit boundvar" title="">n</span> <a class="type" title="=" href="[builtins].html#=">=</a>
+<span class="implicit boundvar" title="">n</span></span></dt><dd></dd><dt id="Algebra.Monoid.idr"><span class="name function" title="Algebra.Monoid.idr">idr</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a> <span class="implicit boundvar" title="">N</span>
+<span class="implicit boundvar" title="">op</span>
+<span class="implicit boundvar" title="">e</span> =>
+<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">n</span>
+<span class="implicit boundvar" title="">e</span> <a class="type" title="=" href="[builtins].html#=">=</a>
 <span class="implicit boundvar" title="">n</span></span></dt><dd></dd></dl></dd></dl></div></div><footer>Produced by IdrisDoc version 1.0</footer></body></html>

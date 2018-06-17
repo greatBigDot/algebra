@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>IdrisDoc: Algebra.Group</title><link type="text/css" rel="stylesheet" href="../styles.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script></head><body class="namespace"><div class="wrapper"><header><strong>IdrisDoc</strong>: Algebra.Group<nav><a href="../index.html">Index</a></nav></header><div class="container"><h1>Algebra.Group</h1><p>Algebra.Group: A representation of groups.</p>
+<p>A group is an associative unital invertible magma.</p>
+<p>It is very important, as it encapsulates the idea of symmetries.</p>
+<p>TODO: Add a real explanation</p>
+<dl class="decls"><dt id="Algebra.Group.inv_G"><span class="name function" title="Algebra.Group.inv_G">inv_G</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Group.Group" href="Algebra.Group.html#Algebra.Group.Group">Group</a> <span class="implicit boundvar" title="">g</span>
+<span class="implicit boundvar" title="">op</span>
+<span class="implicit boundvar" title="">e</span>
+<span class="implicit boundvar" title="">inv</span> =>
+<span class="implicit boundvar" title="">g</span> ->
+<span class="implicit boundvar" title="">g</span></span></dt><dd></dd><dt id="Algebra.Group.e_G"><span class="name function" title="Algebra.Group.e_G">e_G</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Group.Group" href="Algebra.Group.html#Algebra.Group.Group">Group</a> <span class="implicit boundvar" title="">g</span>
+<span class="implicit boundvar" title="">op</span>
+<span class="implicit boundvar" title="">e</span>
+<span class="implicit boundvar" title="">inv</span> =>
+<span class="implicit boundvar" title="">g</span></span></dt><dd></dd><dt id="Algebra.Group.Group"><span class="word">interface&nbsp;</span><span class="name type" title="Algebra.Group.Group">Group</span><span class="signature">&nbsp;</span></dt><dd><dl class="decls"><dt id="Algebra.Group.assoc"><span class="name function" title="Algebra.Group.assoc">assoc</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Group.Group" href="Algebra.Group.html#Algebra.Group.Group">Group</a> <span class="implicit boundvar" title="">G</span>
+<span class="implicit boundvar" title="">op</span>
+<span class="implicit boundvar" title="">e</span>
+<span class="implicit boundvar" title="">inv</span> =>
+<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">g</span>
+(<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">h</span>
+<span class="implicit boundvar" title="">k</span>) <a class="type" title="=" href="[builtins].html#=">=</a>
+<span class="implicit boundvar" title="">op</span> (<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">g</span>
+<span class="implicit boundvar" title="">h</span>)
+<span class="implicit boundvar" title="">k</span></span></dt><dd></dd><dt id="Algebra.Group.idl"><span class="name function" title="Algebra.Group.idl">idl</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Group.Group" href="Algebra.Group.html#Algebra.Group.Group">Group</a> <span class="implicit boundvar" title="">G</span>
+<span class="implicit boundvar" title="">op</span>
+<span class="implicit boundvar" title="">e</span>
+<span class="implicit boundvar" title="">inv</span> =>
+<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">e</span>
+<span class="implicit boundvar" title="">g</span> <a class="type" title="=" href="[builtins].html#=">=</a>
+<span class="implicit boundvar" title="">g</span></span></dt><dd></dd><dt id="Algebra.Group.idr"><span class="name function" title="Algebra.Group.idr">idr</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Group.Group" href="Algebra.Group.html#Algebra.Group.Group">Group</a> <span class="implicit boundvar" title="">G</span>
+<span class="implicit boundvar" title="">op</span>
+<span class="implicit boundvar" title="">e</span>
+<span class="implicit boundvar" title="">inv</span> =>
+<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">g</span>
+<span class="implicit boundvar" title="">e</span> <a class="type" title="=" href="[builtins].html#=">=</a>
+<span class="implicit boundvar" title="">g</span></span></dt><dd></dd><dt id="Algebra.Group.invl"><span class="name function" title="Algebra.Group.invl">invl</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Group.Group" href="Algebra.Group.html#Algebra.Group.Group">Group</a> <span class="implicit boundvar" title="">G</span>
+<span class="implicit boundvar" title="">op</span>
+<span class="implicit boundvar" title="">e</span>
+<span class="implicit boundvar" title="">inv</span> =>
+<span class="implicit boundvar" title="">op</span> (<span class="implicit boundvar" title="">inv</span> <span class="implicit boundvar" title="">g</span>)
+<span class="implicit boundvar" title="">g</span> <a class="type" title="=" href="[builtins].html#=">=</a>
+<span class="implicit boundvar" title="">e</span></span></dt><dd></dd><dt id="Algebra.Group.invr"><span class="name function" title="Algebra.Group.invr">invr</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Group.Group" href="Algebra.Group.html#Algebra.Group.Group">Group</a> <span class="implicit boundvar" title="">G</span>
+<span class="implicit boundvar" title="">op</span>
+<span class="implicit boundvar" title="">e</span>
+<span class="implicit boundvar" title="">inv</span> =>
+<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">g</span>
+(<span class="implicit boundvar" title="">inv</span> <span class="implicit boundvar" title="">g</span>) <a class="type" title="=" href="[builtins].html#=">=</a>
+<span class="implicit boundvar" title="">e</span></span></dt><dd></dd></dl></dd><dt id="Algebra.Group.*"><span class="name function" title="Algebra.Group.*">(*)</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Group.Group" href="Algebra.Group.html#Algebra.Group.Group">Group</a> <span class="implicit boundvar" title="">g</span>
+<span class="implicit boundvar" title="">op</span>
+<span class="implicit boundvar" title="">e</span>
+<span class="implicit boundvar" title="">inv</span> =>
+<span class="implicit boundvar" title="">g</span> ->
+<span class="implicit boundvar" title="">g</span> ->
+<span class="implicit boundvar" title="">g</span></span></dt><dd><dl><dt class="fixity">Fixity</dt><dd class="fixity" title="infixl 9">Left associative, precedence 9</dd></dl></dd></dl></div></div><footer>Produced by IdrisDoc version 1.0</footer></body></html>
