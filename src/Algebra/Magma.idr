@@ -58,6 +58,7 @@ public export
 (|*|) : {magma : Magma} -> Set {magma} -> Set {magma} -> Set {magma}
 (|*|) {magma} = op' magma
 
+
 {-
 public export
 AddMagma : (Num ty) => Magma

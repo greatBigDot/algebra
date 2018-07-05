@@ -1,44 +1,41 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>IdrisDoc: Algebra.Monoid</title><link type="text/css" rel="stylesheet" href="../styles.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script></head><body class="namespace"><div class="wrapper"><header><strong>IdrisDoc</strong>: Algebra.Monoid<nav><a href="../index.html">Index</a></nav></header><div class="container"><h1>Algebra.Monoid</h1><p>Algebra.Monoid: A representation of monoids.</p>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>IdrisDoc: Algebra.Monoid</title><link type="text/css" rel="stylesheet" href="../styles.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script></head><body class="namespace"><div class="wrapper"><header><strong>IdrisDoc</strong>: Algebra.Monoid<nav><a href="../index.html">Index</a></nav></header><div class="container"><h1>Algebra.Monoid</h1><p>Algebra.Monoid: A representation of monoids.</p>
 <p>A monoid is an associative unital magma (i.e., a unital semigroup).
-Mathematically, one has a pair <span class="math inline"><span class="math inline"><span class="math inline">\(\mathscr{N} = (N, *)\)</span></span></span> satisfying:</p>
+Mathematically, one has a pair <span class="math inline">\(\mathscr{N} = (N, *)\)</span> satisfying:</p>
 <ul>
-<li><span class="math inline"><span class="math inline"><span class="math inline">\((x<em>y)</em>z = x<em>(y</em>z)\)</span></span></span></li>
-<li><span class="math inline"><span class="math inline"><span class="math inline">\(\exists e \in N [ \forall x \in N [ x<em>e = e</em>x = x ]]\)</span></span></span></li>
+<li><span class="math inline">\((x<em>y)</em>z = x<em>(y</em>z)\)</span></li>
+<li><span class="math inline">\(\exists e \in N [ \forall x \in N [ x<em>e = e</em>x = x ]]\)</span></li>
 </ul>
 <p>Monoids strike a nice balance between generality and richness of structure;
 many naturally-occuring magmas are indeed monoids. For example, consider the
-set of functions <span class="math inline"><span class="math inline"><span class="math inline">\(X \to X\)</span></span></span>. This set always forms a monoid under
-function composition (i.e., <span class="math inline"><span class="math inline"><span class="math inline">\(* \coloneqq \circ\)</span></span></span>)! Everything has the
-required type (the composition of two functions in <span class="math inline"><span class="math inline"><span class="math inline">\(X \to X\)</span></span></span> is another
+set of functions <span class="math inline">\(X \to X\)</span>. This set always forms a monoid under
+function composition (i.e., <span class="math inline">\(* \coloneqq \circ\)</span>)! Everything has the
+required type (the composition of two functions in <span class="math inline">\(X \to X\)</span> is another
 such function), the identity, of course, is the identity function
-<span class="math inline"><span class="math inline"><span class="math inline">\(\mathrm{id}\)</span></span></span>, and function composition is always associative (applying
+<span class="math inline">\(\mathrm{id}\)</span>, and function composition is always associative (applying
 f, then applying (g then h) is the same as applying (f then g), then
 applying h). Thus, we have a monoid.</p>
 <p>Another simplr monoid is the set of strings over a given alphabet, with
 string concatenation as the function (and the empty string
-<span class="math inline"><span class="math inline"><span class="math inline">\(\varepsilon\)</span></span></span>) as the identity. Again, this obviously must be monoidal,
+<span class="math inline">\(\varepsilon\)</span>) as the identity. Again, this obviously must be monoidal,
 since string concatenation is clearly associative.</p>
 <p>TODO: add a little more</p>
-<dl class="decls"><dt id="Algebra.Monoid.e"><span class="name function" title="Algebra.Monoid.e">e</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a> <span class="implicit boundvar" title="">n</span>
-<span class="implicit boundvar" title="">op</span>
-<span class="implicit boundvar" title="">e</span> =>
-<span class="implicit boundvar" title="">n</span></span></dt><dd></dd><dt id="Algebra.Monoid.Monoid"><span class="word">interface&nbsp;</span><span class="name type" title="Algebra.Monoid.Monoid">Monoid</span><span class="signature">&nbsp;</span></dt><dd><dl class="decls"><dt id="Algebra.Monoid.assoc"><span class="name function" title="Algebra.Monoid.assoc">assoc</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a> <span class="implicit boundvar" title="">N</span>
-<span class="implicit boundvar" title="">op</span>
-<span class="implicit boundvar" title="">e</span> =>
-<span class="implicit boundvar" title="">op</span> (<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">n</span>
-<span class="implicit boundvar" title="">p</span>)
-<span class="implicit boundvar" title="">q</span> <a class="type" title="=" href="[builtins].html#=">=</a>
-<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">n</span>
-(<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">p</span>
-<span class="implicit boundvar" title="">q</span>)</span></dt><dd></dd><dt id="Algebra.Monoid.idl"><span class="name function" title="Algebra.Monoid.idl">idl</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a> <span class="implicit boundvar" title="">N</span>
-<span class="implicit boundvar" title="">op</span>
-<span class="implicit boundvar" title="">e</span> =>
-<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">n</span>
-<span class="implicit boundvar" title="">e</span> <a class="type" title="=" href="[builtins].html#=">=</a>
-<span class="implicit boundvar" title="">n</span></span></dt><dd></dd><dt id="Algebra.Monoid.idr"><span class="name function" title="Algebra.Monoid.idr">idr</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a> <span class="implicit boundvar" title="">N</span>
-<span class="implicit boundvar" title="">op</span>
-<span class="implicit boundvar" title="">e</span> =>
-<span class="implicit boundvar" title="">op</span> <span class="implicit boundvar" title="">e</span>
+<dl class="decls"><dt id="Algebra.Monoid.Monoid"><span class="word">record&nbsp;</span><span class="name type" title="Algebra.Monoid.Monoid">Monoid</span><span class="type">&nbsp;</span></dt><dd><dl class="decls"><dt id="Algebra.Monoid.MkMonoid&#39;"><span class="name constructor" title="Algebra.Monoid.MkMonoid&#39;">MkMonoid&#39;</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">magma</span> : <a class="type" title="Algebra.Magma.Magma" href="Algebra.Magma.html#Algebra.Magma.Magma">Magma</a>) ->
+(<span class="boundvar" title="">ID</span> : <a class="function" title="Algebra.Magma.Set" href="Algebra.Magma.html#Algebra.Magma.Set">Set</a>) ->
+<a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a></span></dt><dd></dd></dl><dl class="decls"><dt id="Algebra.Monoid.Monoid.magma"><span class="name function" title="Algebra.Monoid.Monoid.magma">magma</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">rec</span> : <a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a>) ->
+<a class="type" title="Algebra.Magma.Magma" href="Algebra.Magma.html#Algebra.Magma.Magma">Magma</a></span></dt><dd></dd><dt id="Algebra.Monoid.Monoid.ID"><span class="name function" title="Algebra.Monoid.Monoid.ID">ID</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">rec</span> : <a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a>) ->
+<a class="function" title="Algebra.Magma.Set" href="Algebra.Magma.html#Algebra.Magma.Set">Set</a></span></dt><dd></dd><dt id="Algebra.Monoid.Monoid.assoc"><span class="name function" title="Algebra.Monoid.Monoid.assoc">assoc</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">rec</span> : <a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a>) ->
+<span class="implicit boundvar" title="">s</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+(<span class="implicit boundvar" title="">t</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">u</span>) <a class="type" title="=" href="[builtins].html#=">=</a>
+(<span class="implicit boundvar" title="">s</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">t</span>) <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<span class="implicit boundvar" title="">u</span></span></dt><dd></dd><dt id="Algebra.Monoid.Monoid.idl"><span class="name function" title="Algebra.Monoid.Monoid.idl">idl</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">rec</span> : <a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a>) ->
+<a class="function" title="Algebra.Monoid.Monoid.ID" href="Algebra.Monoid.Monoid.html#Algebra.Monoid.Monoid.ID">ID</a> <span class="boundvar" title="">rec</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
 <span class="implicit boundvar" title="">n</span> <a class="type" title="=" href="[builtins].html#=">=</a>
-<span class="implicit boundvar" title="">n</span></span></dt><dd></dd></dl></dd></dl></div></div><footer>Produced by IdrisDoc version 1.0</footer></body></html>
+<span class="implicit boundvar" title="">n</span></span></dt><dd></dd><dt id="Algebra.Monoid.Monoid.idr"><span class="name function" title="Algebra.Monoid.Monoid.idr">idr</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">rec</span> : <a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a>) ->
+<span class="implicit boundvar" title="">n</span> <a class="function" title="Algebra.Magma.|*|" href="Algebra.Magma.html#Algebra.Magma.|*|">|*|</a>
+<a class="function" title="Algebra.Monoid.Monoid.ID" href="Algebra.Monoid.Monoid.html#Algebra.Monoid.Monoid.ID">ID</a> <span class="boundvar" title="">rec</span> <a class="type" title="=" href="[builtins].html#=">=</a>
+<span class="implicit boundvar" title="">n</span></span></dt><dd></dd></dl></dd><dt id="Algebra.Monoid.MkMonoid&#39;"><span class="name constructor" title="Algebra.Monoid.MkMonoid&#39;">MkMonoid&#39;</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">magma</span> : <a class="type" title="Algebra.Magma.Magma" href="Algebra.Magma.html#Algebra.Magma.Magma">Magma</a>) ->
+(<span class="boundvar" title="">ID</span> : <a class="function" title="Algebra.Magma.Set" href="Algebra.Magma.html#Algebra.Magma.Set">Set</a>) ->
+<a class="type" title="Algebra.Monoid.Monoid" href="Algebra.Monoid.html#Algebra.Monoid.Monoid">Monoid</a></span></dt><dd></dd></dl></div></div><footer>Produced by IdrisDoc version 1.0</footer></body></html>

@@ -31,41 +31,45 @@ import Algebra.Magma
 ||| function utilizing a type that claims to be a semigroup, you know that it
 ||| indeed must be one. mathematically speaking, iff it typechecks. (Of course,
 ||| as usual, this only holds when all of one's proofs are total.)
-
 export
 record Semigroup where
   constructor MkSemigroup'
   magma : Magma
-  assoc : (s,t,u : Set {magma}) -> s |*| (t |*| u) = (s |*| t) |*| u
+  { assoc : {s,t,u : Set {magma}} -> s |*| (t |*| u) = (s |*| t) |*| u }
 
--- MkSemigroup : (magma : Magma) -> {auto asc : {s,t,u : Set {magma}} -> s |*| (t |*| u) = (s |*| t) |*| u} -> Semigroup
--- MkSemigroup magma {asc} = MkSemigroup' magma asc
-
+export
+MkSemigroup : (T : Type) -> (op : T -> T -> T) -> {auto assoc : {s,t,u : T} -> s `op` (t `op` u) = (s `op` t) `op` u} -> Semigroup
+MkSemigroup t op {assoc} = MkSemigroup' (MkMagma t op) {assoc=assoc}
+{-
 public export
-MkSemigroup : (T : Type) -> (op : T -> T -> T) -> {auto asc : (s,t,u : T) -> op s (op t u) = op (op s t) u} -> Semigroup
+MkSemigroup : (T : Type) -> (op : T -> T -> T) -> {auto asc : {s,t,u : T} -> op s (op t u) = op (op s t) u} -> Semigroup
 MkSemigroup set op {asc} = MkSemigroup' (MkMagma set op) asc
-
+-}
 
 -- toInteger : ZZ -> Integer
 -- toInteger (Pos  n) = toIntegerNat n
 -- toInteger (NegS n) = -(toIntegerNat (S n))
 
 %hint
-plusAssociative' : (a,b,c : Nat) -> a + (b + c) = (a + b) + c
-plusAssociative' = plusAssociative
+plusAssociative' : {a,b,c : Nat} -> a + (b + c) = (a + b) + c
+plusAssociative' {a} {b} {c} = plusAssociative a b c
 
 %hint
-multAssociative' : (s : Nat) -> (t : Nat) -> (u : Nat) -> s * (t * u) = (s * t) * u
-multAssociative' = multAssociative
+multAssociative' : {a,b,c : Nat} -> a * (b * c) = (a * b) * c
+multAssociative' {a} {b} {c} = multAssociative a b c
 
 %hint
-plusAssociativeZ' : (a,b,c : ZZ) -> a + (b + c) = (a + b) + c
-plusAssociativeZ' = plusAssociativeZ
+plusAssociativeZ' : {a,b,c : ZZ} -> a + (b + c) = (a + b) + c
+plusAssociativeZ' {a} {b} {c} = plusAssociativeZ a b c
 
 %hint
-multAssociativeZ' : (a,b,c : ZZ) -> a * (b * c) = (a * b) * c
-multAssociativeZ' = multAssociativeZ
+multAssociativeZ' : {a,b,c : ZZ} -> a * (b * c) = (a * b) * c
+multAssociativeZ' {a} {b} {c} = multAssociativeZ a b c
 
+
+NatAddSemi : Semigroup
+NatAddSemi = MkSemigroup Nat (+)
+{-
 export
 NatAddMagma : Magma
 NatAddMagma = MkMagma Nat (+)
@@ -75,10 +79,14 @@ NatAddMagma = MkMagma Nat (+)
 -- NatAddSemi = MkSemigroup NatAddMagma
 
 export NatMultSemi : Semigroup
-NatMultSemi = MkSemigroup Nat (*) {asc = multAssociative'}    -- what the hell
+NatMultSemi = MkSemigroup Nat (*)     -- what the hell
+
+-- SemigroupToMagma : Semigroup -> Magma
+-- SemigroupToMagma (
+
 -- export IntAddSemi : Semigroup
 -- IntAddSemi = MkSemigroup ZZ (+)
 
 -- export IntMultSemi : Semigroup
 -- IntMultSemi = MkSemigroup ZZ (*)
-
+-- -}

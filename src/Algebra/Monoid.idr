@@ -30,6 +30,43 @@ import Algebra.Semigroup
 
 %default total
 
+export
+record Monoid where
+  constructor MkMonoid'
+  magma  : Magma
+  ID     : Set {magma}
+  {assoc : {s,t,u : Set {magma}} -> s |*| (t |*| u) = (s |*| t) |*| u}
+  {idl   : {n : Set {magma}} -> (ID |*| n  = n)}
+  {idr   : {n : Set {magma}} -> (n  |*| ID = n)}
+
+
+MkMonoid : (set : Type) -> (op : set -> set -> set) -> (i : set)
+             -> {auto assoc : {s,t,u : set} -> s `op` (t `op` u) = (s `op` t) `op` u}
+             -> {auto idl   : {n : set} -> (i `op` n = n)}
+             -> {auto idr   : {n : set} -> (n `op` i = n)}
+             -> Monoid
+MkMonoid set op i {assoc} {idl} {idr} = MkMonoid' (MkMagma set op) i {assoc} {idl} {idr}
+
+
+FuncMonoid : {a : Type} -> Monoid
+FuncMonoid {a} = MkMonoid (a -> a) (.) (id)
+
+%hint
+listIdr : {a : Type} -> {xs : List a} -> xs ++ [] = xs
+listIdr {xs = []}      = Refl
+listIdr {xs = (x::xr)} = cong listIdr
+
+%hint
+listAssoc : {a : Type} -> {xs,ys,zs : List a} -> xs ++ (ys ++ zs) = (xs ++ ys) ++ zs
+listAssoc {xs=[]}      {ys} {zs} = Refl
+listAssoc {xs=(x::xr)} {ys} {zs} = cong listAssoc
+
+ListMonoid : {a : Type} -> Monoid
+ListMonoid {a} = MkMonoid (List a) (++) []
+
+MonoidToSemigroup : Monoid -> Semigroup
+MonoidToSemigroup monoid = MkSemigroup Set (|*|) {assoc = assoc monoid}
+--
 {-
 export
 interface Magma N op => Monoid (N : Type) (op : N -> N -> N) (e : N) where
@@ -48,3 +85,4 @@ e @{monoid} = _e monoid
 -- Algebra.Monoid.Monoid n op ide => Algebra.Semigroup.Semigroup n op where
 --   assoc = assoc
 -}
+ 

@@ -1,7 +1,7 @@
 package algebra
 
 brief      = "A representation of several basic algebraic structures (e.g., groups, rings, vector spaces) as Idris types (axioms fully enforced)."
-version    = 0.4.0.0.1
+version    = 0.4.1.0.0
 readme     = README.md
 license    = "Licensed under 'BSD-3-Clause'; a full text can be found in LICENSE."
 author     = "greatBigDot"
